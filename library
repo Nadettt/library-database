@@ -1,0 +1,95 @@
+CREATE DATABASE library;
+USE library;
+
+CREATE TABLE employees (
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+date_of_birth DATE NOT NULL,
+role VARCHAR(30) NOT NULL,
+personal_number CHAR(11) UNIQUE NOT NULL ,
+employee_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
+
+CREATE TABLE students (
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+date_of_birth DATE NOT NULL,
+personal_number CHAR(11) UNIQUE NOT NULL ,
+library_number INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+academic_major VARCHAR(50) NOT NULL);
+
+CREATE TABLE books (
+author VARCHAR(60) NOT NULL,
+title VARCHAR(50) NOT NULL,
+isbn_number INT NOT NULL,
+genre VARCHAR(30) NOT NULL,
+language CHAR(2) NOT NULL DEFAULT "NO",
+book_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
+
+CREATE TABLE authors (
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+date_of_birth DATE NOT NULL,
+PRIMARY_KEY (ID); 
+
+CREATE TABLE loans ( 
+book_title VARCHAR(50) NOT NULL,
+loan_staus VARCHAR(30) NOT NULL,
+loan_date DATE NOT NULL,
+loan_time TIMESTAMP NOT NULL,
+return_date DATE NOT NULL,
+student_name VARCHAR(60) NOT NULL,
+PRIMARY_KEY(book_title, loan_date, student_name));
+
+INSERT INTO employee VALUES
+('Margit', 'Kampen', '1975-06-23', 'manager', '23067511111', 100),
+('Kristina', 'Eikeli', '1982-11-30', 'librarian', '11308211112', 101),  
+('Knut', 'Nordland', '1964-01-10', 'librarian', '10016411113', 102),
+('Preben', 'Tellefsen', '1967-04-24', 'janitor', '24046711114', 103),
+('Astri', 'Falstad', '1999-06-13', 'intern', '13069911115', 104);
+
+
+INSERT INTO student VALUES
+('Elias', 'Ohlsen', '1997-07-17','17079700001' 50010, 'computer science'),
+('Tora', 'Aamodt', '1991-12-24','24129100002' 50011, 'dentist'),
+('Stig', 'Hauge', '1995-02-19','19029500003' 50012, 'linguistics'),
+('Tommy', 'Ketelsen', '1988-12-07','07128800004' 50013, 'interior design'),
+('Bodil', 'Haagen', '1990-08-08','08089000005' 50014, 'software engineering'),
+('Martine', 'Borseth', '1985-10-22','22108500006' 50015, 'marketing'),
+('Quanesha', 'Perry', '1993-08-13','34550400007' 50016, 'anthropology'),
+('Damon', 'Fischer', '1993-02-12','64950100008' 50017, 'graphic design'),
+('Jay', 'Kumar', '1985-09-14','14098500090' 50018, 'medicine'),
+('Ann', 'Xiang', '1989-10-07','55764100045' 50019, 'data science');
+
+INSERT INTO books VALUES
+('Agatha Christie', 'Murder on the Orient Express' 9781234567897, 'detective novel', 'EN', 00001),
+('Agatha Christie', 'Body in the Library' 9781175924810, 'detective novel', 'EN', 00002),
+('J.R.R. Tolkien', 'Lord of the Rings' 9785284600290, 'high-fantasy novel', 'EN', 00003),
+('J.R.R. Tolkien', 'The Hobbit' 9788230505755, 'high-fantasy novel', 'EN', 00004),
+('Jo Nesbø', 'Sønnen', 9788821311895, 'crime fiction', 'NO', 00005),
+('Jo Nesbø', 'Snømannen', 9780774472371, 'crime fiction', 'NO', 00006),
+('Cay Horstmann', 'Big Java, Late objects', 1118087884132, 'computer programming', 'EN', 00007),
+('David Flanagan', 'Javascript', 1176340217832, 'computer programming', 'EN', 00008),
+('László Bock', 'A Google Titok', 9789633103715, 'self-development', 'HU', 00009),
+('Brian Christian & Tom Griffiths', 'Algorithms to live by', 9780007547999, 'self-development', 'EN', 00010),
+('Erik Bertrand Larssen', 'Bli best med mental trening', 9788272015410, 'coaching', 'NO', 00011),
+('Richard Hollis', 'Graphic design-A concise history', 9780500203477, 'history', 'NO', 00012),
+('Maria Semple', 'Hvor ble du av Bernadette', 9788283130430, 'comedy novel', 'NO', 00013);
+
+
+INSERT INTO authors VALUES
+('Agatha', 'Christie', '1890-09-15', 1),
+('J.R.R.', 'Tolkien', '1892-01-03', 2),
+('Jo', 'Nesbø', '1960-03-29', 3),
+('Cay', 'Horstmann', '1959-06-16', 4),
+('David', 'Flanagan', '1985-10-24', 5),
+('László', 'Bock', '1972-00-00', 6),
+('Brian', 'Christian', '1984-07-28', 7),
+('Tom', 'Griffiths', '1957-00-00', 8),
+('Erik Bertrand', 'Larssen', '1973-08-09', 9),
+('Richard', 'Hollis', '1943-00-00', 10),
+('Maria', 'Semple', '1964-05-21', 11);
+
+INSERT INTO loans VALUES
+(
+ 
+
